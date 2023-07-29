@@ -1,0 +1,91 @@
+{
+    "share": {
+        "index": 7,
+        "value": {
+            "value": "434ccee170491255",
+            "prime": "720516d027af5e6b"
+        }
+    },
+    "commitments": [
+        {
+            "tag": "prime",
+            "data": {
+                "value": "9fc2cbd410132ad1",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "7376ff18d0b4f912",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "da7001f1a980e848",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "b76a0b8b1c38a771",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "e10963a33e58c078",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "a06d99eda1ae33d9",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "db66621f9283636e",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "e0d540300d05c935",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "5e000822655daf6d",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        {
+            "tag": "prime",
+            "data": {
+                "value": "d79abc4e3ce2134c",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        }
+    ],
+    "group": {
+        "generator": {
+            "tag": "prime",
+            "data": {
+                "value": "2",
+                "prime": "e40a2da04f5ebcd7"
+            }
+        },
+        "p": "720516d027af5e6b"
+    }
+}

@@ -2,6 +2,7 @@ import numpy as np
 import random
 from fractions import Fraction
 import json
+from sympy import mod_inverse, Pow
 
 def isPrime(number, itr):  
     if itr == 1:
@@ -63,8 +64,12 @@ def mod_sub(a, b, prime):
 def mod_mul(a, b, prime):
     return (a * b) % prime
 
-def mod_inverse(a, prime):
-    return pow(a, -1, prime)
+def mod_inverse(a, p):
+    # Calculate the modular inverse of 'a' modulo 'p' using Extended Euclidean Algorithm
+    for b in range(1, p):
+        if (a * b) % p == 1:
+            return (b*1)%p
+    raise ValueError("Inverse does not exist.")
 
 def mod_div(a, b, prime):
     inverse_b = mod_inverse(b, prime)
@@ -95,6 +100,12 @@ def lagrange_interpolation(points,prime):
     return generate_secret
 
 if __name__ == "__main__":
+    a = 1/3
+    print(mod_inverse(-3,5))
+    print(-3%5)
+    print(mod_inverse(3,11))
+    g = 3
+    print(mod_inverse(81,11))
     p = int(input("Enter the value of p: "))
     if not isPrime(p, p - 1):
         print("p is supposed to be a prime number")
@@ -152,3 +163,4 @@ if __name__ == "__main__":
 
     with open("output.json", "w") as json_file:
         json.dump(output_data, json_file, indent=4)
+
