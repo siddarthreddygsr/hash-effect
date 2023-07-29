@@ -1,3 +1,6 @@
+import numpy as np
+import random
+
 def isPrime(number,itr):  #prime function to check given number prime or not
 	if itr == 1:   #base condition
 		return True
@@ -9,6 +12,7 @@ def isPrime(number,itr):  #prime function to check given number prime or not
 
 def primeField(p):
   return list(range(p))
+
 def groupField(p,g):
 	group_field = []
 	group_field.append((g**0)%p)
@@ -17,6 +21,11 @@ def groupField(p,g):
 		group_field.append((g**i)%p)
 		i += 1
 	return group_field
+
+def create_polynomial(coefficients):
+    # Create the polynomial using numpy.poly1d
+    polynomial = np.poly1d(coefficients)
+    return polynomial
 
 if __name__ == "__main__":
 	p = int(input("Enter the value of p: "))
@@ -29,3 +38,16 @@ if __name__ == "__main__":
 		g = int(input("Enter a value for g: "))
 		group_field = groupField(p,g)
 	print(group_field)
+	n = len(group_field)
+	s = int(input("enter a value for s: "))
+	k = int(input("Enter a value for threshold: "))
+	if s >= p:
+		exit
+	if k < 2:
+		exit
+	coefficients = [s]
+	for i in range(k-1):
+		coefficients.insert(0,random.randint(1,10))
+	print(coefficients)
+	print(create_polynomial(coefficients))
+	
