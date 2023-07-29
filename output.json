@@ -1,0 +1,75 @@
+{
+    "secret": 0,
+    "shares": [
+        {
+            "index": 1,
+            "value": {
+                "value": "76bf",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 2,
+            "value": {
+                "value": "5bcc1",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 3,
+            "value": {
+                "value": "29d52b",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 4,
+            "value": {
+                "value": "c5ba85",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 5,
+            "value": {
+                "value": "2b3c817",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 6,
+            "value": {
+                "value": "7ab3d91",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 7,
+            "value": {
+                "value": "12b4dd43",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 8,
+            "value": {
+                "value": "28b8a4e5",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 9,
+            "value": {
+                "value": "5124a0ef",
+                "prime": "17"
+            }
+        },
+        {
+            "index": 10,
+            "value": {
+                "value": "96acda81",
+                "prime": "17"
+            }
+        }
+    ]
+}

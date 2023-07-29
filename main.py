@@ -11,6 +11,13 @@ def isPrime(number,itr):  #prime function to check given number prime or not
 		return False
 	return True
 
+def convert_to_hex(arr):
+    hex_array = []
+    for row in arr:
+        hex_row = [hex(element) for element in row]
+        hex_array.append(hex_row)
+    return hex_array
+
 def primeField(p):
   return list(range(p))
 
@@ -77,6 +84,9 @@ if __name__ == "__main__":
 		print("Prime field: ",prime_field)
 		g = int(input("Enter a value for g: "))
 		group_field = groupField(p,g)
+		x = int(input("enter value: "))
+		print((g**x)%p)
+
 	print(group_field)
 	n = len(group_field)
 	s = int(input("enter a value for s: "))
@@ -97,5 +107,6 @@ if __name__ == "__main__":
 		no_of_shares = int(input("enter the number of shares u want to create: "))
 	shares = create_shares(f,no_of_shares)
 	print(shares)
+	print(convert_to_hex(shares))
 	interpolate = lagrange_interpolation(shares[:k])
 	print(interpolate(0))
