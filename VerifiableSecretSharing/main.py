@@ -42,6 +42,7 @@ for i in commitment_values:
     master = master%q
 
 master = master%q
+print(p,q)
 print("LHS = ",master)
 
 new_g= g%q

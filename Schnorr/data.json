@@ -1,0 +1,37 @@
+{
+    "group": {
+        "generator": {
+            "tag": "prime",
+            "data": {
+                "value": "3",
+                "prime": "c8958eb0bf4ed163"
+            }
+        },
+        "p": "644ac7585fa768b1"
+    },
+    "hash": {
+        "value": "4fa9c14011581d1e",
+        "prime": "644ac7585fa768b1"
+    },
+    "message": "Hash Effect!!!",
+    "publicKey": {
+        "tag": "prime",
+        "data": {
+            "value": "5121e12501d45e2a",
+            "prime": "c8958eb0bf4ed163"
+        }
+    },
+    "signature": {
+        "r": {
+            "tag": "prime",
+            "data": {
+                "value": "2ab2588c7b4fa2c8",
+                "prime": "c8958eb0bf4ed163"
+            }
+        },
+        "sigma": {
+            "value": "3ff3e4f21960bf9f",
+            "prime": "644ac7585fa768b1"
+        }
+    }
+}
