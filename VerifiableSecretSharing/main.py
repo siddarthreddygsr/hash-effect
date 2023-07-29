@@ -1,6 +1,6 @@
 import json
 
-with open('data.json', 'r') as file:
+with open('valid-data.json', 'r') as file:
     json_data = file.read()
 
 data = json.loads(json_data)
@@ -21,12 +21,6 @@ for commitment in data["commitments"]:
     commitment_value = int(commitment["data"]["value"],16)
     commitment_values.append(commitment_value)
 
-print(hex(p))
-# print(share_value)
-# print(q)
-# print(g)
-print(x)
-print(hex(q))
 
 # print(commitment_values)
 l = len(commitment_values) - 1
@@ -43,20 +37,17 @@ for i in commitment_values:
     # for j in range(x**l):
         # master *= gx
         # master = master %q
-    print(hex(i))
     master *= pow(i,x**l,q)
-    print(l)
     l = l+1
     master = master%q
 
 master = master%q
-print("ho")
-print(master)
+print("LHS = ",master)
 
 new_g= g%q
 new_master = pow(new_g, y, q)
 new_master %= q
-print(new_master)
+print("RHS = ",new_master)
 # new_master = 1
 # for i in range(y):
 #     new_master *= new_g
