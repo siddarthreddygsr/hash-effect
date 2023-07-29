@@ -1,5 +1,6 @@
 import numpy as np
 import random
+from fractions import Fraction
 
 def isPrime(number,itr):  #prime function to check given number prime or not
 	if itr == 1:   #base condition
@@ -23,9 +24,48 @@ def groupField(p,g):
 	return group_field
 
 def create_polynomial(coefficients):
-    # Create the polynomial using numpy.poly1d
-    polynomial = np.poly1d(coefficients)
-    return polynomial
+	# Create the polynomial using numpy.poly1d
+	polynomial = np.poly1d(coefficients)
+	return polynomial
+
+def create_shares(f,no_of_shares):
+	shares = []
+	for i in range(no_of_shares):
+		share_i = []
+		x = random.randint(1,100)
+		share_i.append(x)
+		share_i.append(f(x))
+		shares.append(share_i)
+	return shares
+
+def check_share(shares):
+	x = []
+	y = []
+	for i in shares:
+		x.append(i[0])
+		y.append(i[1])
+	print(x,y)
+
+def lagrange_interpolation(points):
+	if not points or len(points[0]) != 2:
+		raise ValueError("Invalid input. Expected a 2D array with each row containing a point (x, y).")
+
+	M = len(points)
+	x_values, y_values = zip(*points)
+
+	def calculate_lagrange_term(i, x):
+		term = Fraction(1, 1)
+		for j in range(M):
+			if i != j:
+				term *= Fraction(x - x_values[j], x_values[i] - x_values[j])
+		return term
+	def generate_secret(x):
+		secret = Fraction(0, 1)
+		for i in range(M):
+			secret += y_values[i] * calculate_lagrange_term(i, x)
+		return secret
+
+	return generate_secret
 
 if __name__ == "__main__":
 	p = int(input("Enter the value of p: "))
@@ -49,5 +89,13 @@ if __name__ == "__main__":
 	for i in range(k-1):
 		coefficients.insert(0,random.randint(1,10))
 	print(coefficients)
-	print(create_polynomial(coefficients))
-	
+	f = create_polynomial(coefficients)
+	no_of_shares = int(input("enter the number of shares u want to create: "))
+	while ( no_of_shares < k):
+		print(" number of shares should be greater than ", k)
+		print("Try again!!")
+		no_of_shares = int(input("enter the number of shares u want to create: "))
+	shares = create_shares(f,no_of_shares)
+	print(shares)
+	interpolate = lagrange_interpolation(shares[:k])
+	print(interpolate(0))
