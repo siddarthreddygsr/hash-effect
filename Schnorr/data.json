@@ -4,34 +4,34 @@
             "tag": "prime",
             "data": {
                 "value": "3",
-                "prime": "c8958eb0bf4ed163"
+                "prime": "ef94fdb07d11b18b"
             }
         },
-        "p": "644ac7585fa768b1"
+        "p": "77ca7ed83e88d8c5"
     },
     "hash": {
-        "value": "4fa9c14011581d1e",
-        "prime": "644ac7585fa768b1"
+        "value": "19a2b3fb96c8c5f7",
+        "prime": "77ca7ed83e88d8c5"
     },
     "message": "Hash Effect!!!",
     "publicKey": {
         "tag": "prime",
         "data": {
-            "value": "5121e12501d45e2a",
-            "prime": "c8958eb0bf4ed163"
+            "value": "ec867b801c444370",
+            "prime": "ef94fdb07d11b18b"
         }
     },
     "signature": {
         "r": {
             "tag": "prime",
             "data": {
-                "value": "2ab2588c7b4fa2c8",
-                "prime": "c8958eb0bf4ed163"
+                "value": "c1a2d451d7b7c0ea",
+                "prime": "ef94fdb07d11b18b"
             }
         },
         "sigma": {
-            "value": "3ff3e4f21960bf9f",
-            "prime": "644ac7585fa768b1"
+            "value": "2e05cdf407bf56af",
+            "prime": "77ca7ed83e88d8c5"
         }
     }
 }
