@@ -1,7 +1,10 @@
+from functools import reduce
 import numpy as np
 import random
 import sys
 import hashlib
+import operator
+from fractions import Fraction
 sys.set_int_max_str_digits(10000000)
 
 
@@ -53,7 +56,8 @@ for i in range(no_of_nodes):
 
 signatures = []
 for i in range(no_of_nodes):
-	c.append(hash(r,y[i],p))
+	# c.append(hash(r,y[i],p))
+	c.append(hash(r,pow(g,sum(secrets)),p))
 	u_i = k + hash(r,y[i],p)*secrets[i]
 	u.append(u_i)
 	signatures.append([u_i,r])
@@ -127,7 +131,7 @@ print(d_e)
 print(d_e_cap)
 
 b = []
-for i in range(no_of_nodes-1):
+for i in range(threshold):
 	temp = [i+1] + d_e_cap[i][0]
 	b.append(temp)
 print("b: ",b)
@@ -147,7 +151,7 @@ print(p_hash)
 
 c_hash = []
 
-for i in range(no_of_nodes-1):
+for i in range(threshold):
 	combined_string = str(r) + str(y[i]) + message
 	stringtohash = str(i) + combined_string
 	stringtohash = stringtohash.encode('utf-8')
@@ -155,15 +159,42 @@ for i in range(no_of_nodes-1):
 	hashed = int(sha256_hash,16)%p
 	c_hash.append(hashed)
 
-print(c_hash)
+print("c hash : " ,c_hash)
 
 z = []
-for i in range(no_of_nodes-1):
-	lamda = 1
-	for j in range(no_of_nodes - 1):
-		if j != i:
-			lamda *= j/(j-i)
+lamdas = []
+for i in range(threshold):
+	lamda = Fraction(1, 1)
+	for j in range(1,i+1):
+		if i != j:
+				lamda *= Fraction(j, j - i)
+	lamdas.append(lamda)
 	z_i = d_e[i][0][0] + d_e[i][0][1]*p_hash[i] + c_hash[i]*secrets[i]*lamda
 	z.append(z_i)
 z_cap = sum(z)
 
+print("lamdas : ", lamdas)
+
+new_r = 1
+for i in range(threshold):
+	d = d_e_cap[i][0][0]
+	e = d_e_cap[i][0][1]
+	r_i = d*pow(e,p_hash[i])
+	new_r *= r_i
+	lhs = pow(int(g),int(z[i]),int(p))
+	rhs = pow(y[i],int(lamdas[i]*c_hash[i]),p)*r_i%p
+	print(lhs,rhs)
+
+lhs = pow(g,int(z_cap),p)
+comity = pow(g,sum(y),p)
+new_c = reduce(operator.mul, c_hash)
+# new_c = sum(c_hash)
+rhs = pow(comity,new_c,p)*new_r%p
+
+print(c_hash)
+# lhs = pow(g, int(z_cap), p)
+# comity = pow(g, sum(secrets), p)
+# new_c = reduce(operator.mul, c_hash)
+# rhs = pow(comity, new_c, p) * new_r % p
+print(lhs,rhs)
+# print(comity)
